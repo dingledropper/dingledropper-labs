@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dingledropper LABS</title>
+  <meta name="description" content="Privacy-first mobile tools. We build apps that keep your data on your device — where it belongs.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0A1118;
+      --surface: #0F1720;
+      --surface-elevated: #141C24;
+      --text-primary: #E8EDF2;
+      --text-secondary: #C8D4E0;
+      --text-tertiary: #6B8399;
+      --accent-green: #44DD88;
+      --accent-teal: #7FAACC;
+      --accent-blue: #44AADD;
+      --border: #1E2A36;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    header {
+      padding: 48px 0 32px;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent-green);
+      margin-bottom: 8px;
+    }
+
+    .lab-name {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+
+    .lab-name span {
+      color: var(--accent-green);
+    }
+
+    .tagline {
+      font-size: 18px;
+      color: var(--text-secondary);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* Principle bar */
+    .principles {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 32px 0 48px;
+    }
+
+    .principle {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 8px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      letter-spacing: 0.5px;
+    }
+
+    .principle em {
+      font-style: normal;
+      color: var(--accent-green);
+    }
+
+    /* Apps section */
+    .section-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 24px;
+    }
+
+    .app-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 24px;
+      transition: border-color 0.2s;
+    }
+
+    .app-card:hover {
+      border-color: var(--accent-green);
+    }
+
+    .app-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .app-icon {
+      font-size: 40px;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--surface-elevated);
+      border-radius: 14px;
+    }
+
+    .app-name {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .app-badge {
+      display: inline-block;
+      background: rgba(68, 221, 136, 0.1);
+      border: 1px solid rgba(68, 221, 136, 0.3);
+      color: var(--accent-green);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-left: 12px;
+    }
+
+    .app-description {
+      color: var(--text-secondary);
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .app-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .feature-tag {
+      background: var(--surface-elevated);
+      border-radius: 8px;
+      padding: 6px 14px;
+      font-size: 13px;
+      color: var(--text-tertiary);
+      font-weight: 500;
+    }
+
+    .store-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      padding: 10px 24px;
+      background: var(--accent-green);
+      color: var(--bg);
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      transition: opacity 0.2s;
+    }
+
+    .store-link:hover {
+      opacity: 0.85;
+    }
+
+    /* Philosophy section */
+    .philosophy {
+      margin: 48px 0;
+      padding: 32px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    .philosophy h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .philosophy p {
+      color: var(--text-secondary);
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
+    .philosophy p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Footer */
+    footer {
+      padding: 32px 0 48px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      margin-top: 48px;
+    }
+
+    footer p {
+      color: var(--text-tertiary);
+      font-size: 13px;
+    }
+
+    footer a {
+      color: var(--accent-teal);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .contact {
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--text-tertiary);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .lab-name { font-size: 32px; }
+      .tagline { font-size: 16px; }
+      .app-card { padding: 24px; }
+      .app-name { font-size: 20px; }
+      .principles { gap: 8px; }
+      .principle { font-size: 12px; padding: 6px 14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">dingledropper</div>
+      <h1 class="lab-name">LABS<span>.</span></h1>
+      <p class="tagline">Privacy-first mobile tools. Your data stays on your device — where it belongs.</p>
+    </header>
+
+    <div class="principles">
+      <div class="principle"><em>0</em> data collected</div>
+      <div class="principle"><em>0</em> servers</div>
+      <div class="principle"><em>0</em> tracking</div>
+      <div class="principle"><em>100%</em> on-device</div>
+    </div>
+
+    <div class="section-title">Apps</div>
+
+    <div class="app-card">
+      <div class="app-header">
+        <div class="app-icon">🛡️</div>
+        <div>
+          <span class="app-name">PermissionScope</span>
+          <span class="app-badge">Android</span>
+        </div>
+      </div>
+      <p class="app-description">
+        See exactly what every app on your phone can access — and why it matters.
+        Scans installed apps, scores permission risk, explains threats in plain English,
+        and puts you one tap away from fixing each one.
+      </p>
+      <div class="app-features">
+        <span class="feature-tag">Permission Scanner</span>
+        <span class="feature-tag">Risk Assessment</span>
+        <span class="feature-tag">Network Security Audit</span>
+        <span class="feature-tag">DNS Traffic Monitor</span>
+        <span class="feature-tag">Nearby Device Detection</span>
+        <span class="feature-tag">Privacy Policy Summaries</span>
+      </div>
+      <a class="store-link" href="https://play.google.com/store/apps/details?id=com.permissionscope.app" target="_blank">
+        ▶ Google Play Store
+      </a>
+    </div>
+
+    <div class="philosophy">
+      <h2>Why we build this way</h2>
+      <p>
+        Most "security" apps ask for more permissions than the threats they claim to protect you from.
+        They scan your phone, then ship everything they find to a server you don't control.
+      </p>
+      <p>
+        We do it differently. Every scan, every analysis, every risk score is computed entirely on your device.
+        No accounts. No cloud. No analytics. No ads. No data leaves your phone — ever.
+      </p>
+      <p>
+        You can verify this yourself: PermissionScope uses exactly two permissions —
+        local VPN (for DNS monitoring) and query installed apps (for scanning). That's it.
+        No camera. No microphone. No contacts. No location.
+      </p>
+    </div>
+
+    <footer>
+      <p>dingledropper LABS &mdash; <a href="https://github.com/dingledropper">github.com/dingledropper</a></p>
+      <p class="contact">Contact: dingledropper@users.noreply.github.com</p>
+    </footer>
+  </div>
+</body>
+</html>
