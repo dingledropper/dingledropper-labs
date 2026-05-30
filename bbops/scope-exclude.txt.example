@@ -1,0 +1,10 @@
+# bbops exclusions — hostnames/patterns to NEVER touch, one per line.
+#
+# Use this for out-of-scope subdomains, shared third-party infra, status pages,
+# or anything a program lists as explicitly out of scope. Matched as substrings
+# against discovered hostnames.
+#
+# Examples:
+# status.example.com
+# blog.example.com
+# example.com.cdn-provider.net

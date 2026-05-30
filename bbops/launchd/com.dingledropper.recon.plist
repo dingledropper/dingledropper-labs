@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Installed by setup-mac.sh; __RECON__ and __LOGDIR__ are substituted in. -->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.dingledropper.recon</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>__RECON__</string>
+    </array>
+
+    <!-- Run every 6 hours. -->
+    <key>StartInterval</key>
+    <integer>21600</integer>
+
+    <!-- Run once shortly after load too. -->
+    <key>RunAtLoad</key>
+    <true/>
+
+    <!-- Be a good fanless citizen: low CPU scheduling priority. -->
+    <key>Nice</key>
+    <integer>10</integer>
+    <key>ProcessType</key>
+    <string>Background</string>
+
+    <key>StandardOutPath</key>
+    <string>__LOGDIR__/launchd.out</string>
+    <key>StandardErrorPath</key>
+    <string>__LOGDIR__/launchd.err</string>
+</dict>
+</plist>

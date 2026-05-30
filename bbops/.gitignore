@@ -1,0 +1,10 @@
+# Never commit real scope, secrets, or scan results.
+scope.txt
+scope-exclude.txt
+.env
+runs/
+alerts.log
+launchd.out
+launchd.err
+fuzz/corpus/
+fuzz/crashes/

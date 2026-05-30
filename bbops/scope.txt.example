@@ -1,0 +1,9 @@
+# bbops scope — YOUR AUTHORIZED ROOT DOMAINS, one per line.
+#
+# ONLY list assets that a bug-bounty / VDP program explicitly puts IN SCOPE,
+# or systems you own. Anything here will be enumerated and scanned automatically.
+# Lines starting with # are ignored. recon.sh will not run if this file is empty.
+#
+# Examples (replace with real, authorized targets):
+# example.com
+# api.example.com
