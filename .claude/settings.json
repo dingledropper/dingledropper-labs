@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Edit",
+      "Write",
+      "MultiEdit",
+      "SendUserFile",
+      "Bash(mkdir *)",
+      "Bash(chmod *)",
+      "Bash(touch *)",
+      "Bash(ln *)",
+      "Bash(cp *)",
+      "Bash(mv *)",
+      "Bash(tar *)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
+    ]
+  }
+}
