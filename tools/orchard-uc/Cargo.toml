@@ -1,0 +1,22 @@
+[package]
+name = "orchard-uc"
+version = "0.1.0"
+edition = "2021"
+description = "Orchard Action circuit under-constrained-cell detector (Lane-1, full-circuit)"
+
+[[bin]]
+name = "orchard-uc"
+path = "src/main.rs"
+
+[dependencies]
+# Pin to match orchard 0.14.0's Cargo.lock on M4. `cargo update -p halo2_proofs --precise X`
+# if resolution drifts. orchard 0.14.0 -> halo2_proofs 0.3.x, pasta_curves 0.5.x, halo2_gadgets 0.5.x.
+orchard       = { version = "0.14.0", features = ["circuit"] }
+halo2_proofs  = { version = "0.3",    default-features = false }
+pasta_curves  = "0.5"
+ff            = "0.13"
+group         = "0.13"
+
+# To audit the *historical insecure* circuit instead, build with: --features insecure
+[features]
+insecure = []
