@@ -94,25 +94,25 @@ pub struct PsiConfig {
     q_last: Selector, // last step only; canonicity (final borrow == 1)
 }
 
-pub struct NoteCommitPsi<M: Mode> {
+pub struct NoteCommitPsi<F: Field, M: Mode> {
     /// The canonical value bits of the honest witness (b_0 .. b_254), LSB first.
     bits: [bool; N_BITS],
-    _mode: core::marker::PhantomData<M>,
+    _marker: core::marker::PhantomData<(F, M)>,
 }
 
-impl<M: Mode> Default for NoteCommitPsi<M> {
+impl<F: Field, M: Mode> Default for NoteCommitPsi<F, M> {
     fn default() -> Self {
         // Honest witness: psi = 1 -> bits = 000...0001 (canonical, < p).
         let mut bits = [false; N_BITS];
         bits[0] = true;
         Self {
             bits,
-            _mode: core::marker::PhantomData,
+            _marker: core::marker::PhantomData,
         }
     }
 }
 
-impl<F: Field, M: Mode> Circuit<F> for NoteCommitPsi<M> {
+impl<F: Field, M: Mode> Circuit<F> for NoteCommitPsi<F, M> {
     type Config = PsiConfig;
     type FloorPlanner = SimpleFloorPlanner;
 
@@ -288,5 +288,5 @@ impl<F: Field, M: Mode> Circuit<F> for NoteCommitPsi<M> {
 }
 
 /// Convenience aliases matching the Korrekt `run_analysis` hardcoding style.
-pub type NoteCommitPsiCircuit = NoteCommitPsi<Secure>;
-pub type NoteCommitPsiCircuitUnderConstrained = NoteCommitPsi<UnderConstrained>;
+pub type NoteCommitPsiCircuit<F> = NoteCommitPsi<F, Secure>;
+pub type NoteCommitPsiCircuitUnderConstrained<F> = NoteCommitPsi<F, UnderConstrained>;
