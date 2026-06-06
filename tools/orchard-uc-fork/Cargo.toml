@@ -1,0 +1,23 @@
+[package]
+name = "orchard-uc-fork"
+version = "0.1.0"
+edition = "2021"
+description = "Orchard Action circuit structural under-constrained-cell detector, built against the Analyzable-Halo2 fork (un-sealed introspection)."
+
+[[bin]]
+name = "orchard-uc-fork"
+path = "src/main.rs"
+
+[dependencies]
+# orchard's real Action circuit (note_commit, commit_ivk, ...) and its gadgets.
+orchard      = { version = "0.14.0", features = ["circuit"] }
+halo2_proofs = { version = "0.3", default-features = false, features = ["batch", "floor-planner-v1-legacy-pdqsort"] }
+pasta_curves = "0.5"
+
+# THE KEY: replace crates.io halo2_proofs (which seals Column::index / cs.gates /
+# query column indices) with the Analyzable-Halo2 fork, which is ALSO 0.3.0 but
+# marks those `pub` ("Visibility changed for analyzer"). This makes orchard +
+# halo2_gadgets compile unchanged while letting THIS crate introspect the real
+# circuit. Same fork Korrekt uses.
+[patch.crates-io]
+halo2_proofs = { git = "https://github.com/Analyzable-Halo2/zcash-halo2.git", package = "halo2_proofs" }
